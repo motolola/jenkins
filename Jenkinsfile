@@ -1,6 +1,5 @@
 pipeline {
-    agent any
-    tools {
+
         /* Name of branch being built. */
         final branch = env['BRANCH_NAME']
 
@@ -26,7 +25,6 @@ pipeline {
 
         /* Name of centrally configured JDK installation in Jenkins. */
         final jdkToolName = 'Java 11 OpenJDK (Latest)'
-    }
 
     // Run on any node with cloud-build and linux labels.
     node('cloud-build && linux') {

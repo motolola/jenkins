@@ -1,11 +1,5 @@
 pipeline {
 
-        /* Name of branch being built. */
-        final branch = env['BRANCH_NAME']
-
-        /* Name of job (URL encoded by Jenkins, so we decode it). */
-        final jobName = URLDecoder.decode(env['JOB_NAME'], "UTF-8")
-
         /* Name of build. */
         final buildName = jobName + '#' + env['BUILD_NUMBER']
 

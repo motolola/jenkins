@@ -4,7 +4,12 @@ pipeline {
                 stages {
                     stage ('Checkout') {
                        // Git checkout the branch.
-                               echo "This is checkout"
+                               steps {
+                                echo "This is checkout"
+
+
+                               }
+
 
                     }
 

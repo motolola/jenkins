@@ -1,26 +1,5 @@
 pipeline {
 
-        /* Name of build. */
-        final buildName = jobName + '#' + env['BUILD_NUMBER']
-
-        /* Maven Options
-         *             --batch-mode : recommended in CI to inform maven to not run in interactive mode (less logs).
-         *                       -V : strongly recommended in CI, will display the JDK and Maven versions in use.
-         *                       -U : force maven to update snapshots each time (default : once an hour, makes no sense in CI).
-         * -Dsurefire.useFile=false : useful in CI. Displays test errors in the logs (instead of having to crawl the workspace to see the cause).
-         */
-        final mavenOptions = '--batch-mode -V -U -e -Dsurefire.useFile=false -Dbuild.description=\"' + buildName + "\""
-
-        /* SCM URL */
-        final scmUrl = 'git@bitbucket.org:cognitranlimited/myvehicle.git'
-
-        /* Name of centrally configured Maven installation in Jenkins. */
-        final mavenToolName = 'Maven 3.3.9'
-
-        /* Name of centrally configured JDK installation in Jenkins. */
-        final jdkToolName = 'Java 11 OpenJDK (Latest)'
-
-    // Run on any node with cloud-build and linux labels.
     node('cloud-build && linux') {
         timeout(time: 3, unit: 'HOURS') {
 

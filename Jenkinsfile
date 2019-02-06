@@ -3,16 +3,8 @@ pipeline {
                 stages {
                     stage ('Checkout') {
                        // Git checkout the branch.
-                               checkout scm
+                               echo "This is checkout"
 
-                               // Set build description to commit hash for convenience.
-                               currentBuild.description = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-
-                               // Make sure that committer and author are included in notification emails.
-                               notificationRecipients.add(sh(returnStdout: true, script: 'git --no-pager log -1 --pretty=format:"%ae"').trim())
-                               notificationRecipients.add(sh(returnStdout: true, script: 'git --no-pager log -1 --pretty=format:"%ce"').trim())
-                               notificationRecipients.unique()
-                               print "Notification Recipients: " + notificationRecipients.join(" ")
                     }
 
                     stage ('Verify') {

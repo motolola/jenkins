@@ -1,6 +1,5 @@
 pipeline {
 
-        timeout(time: 3, unit: 'HOURS') {
 
             try {
 
@@ -62,9 +61,4 @@ pipeline {
             catch (e) {
              //failure/success email etc ...
             }
-
-        }
-
-
-
 }

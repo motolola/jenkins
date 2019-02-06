@@ -1,8 +1,5 @@
 pipeline {
 
-
-            try {
-
                 stages {
                     stage ('Checkout') {
                        // Git checkout the branch.
@@ -58,7 +55,5 @@ pipeline {
                 }
 
             }
-            catch (e) {
-             //failure/success email etc ...
-            }
+
 }

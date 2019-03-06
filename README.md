@@ -1,2 +1,2 @@
-# jenkins
-just to test jenkins, that's all
+# jenkins - A practice project
+just to learn jenkins, that's all ...
